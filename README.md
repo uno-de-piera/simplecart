@@ -82,6 +82,38 @@
 	Simplecart::destroy();
 ```
 
+<h1>Final example usage</h1>
+<p>First visit route insert</p>
+```php
+Route::get("insert", function(){
+	$id = 9;
+    $qty = 5;
+    $price = 1500;
+    $item = array(
+        'id' => $id,
+        'qty' => $qty,
+        'price' => $price,
+        'name' => "shirt",
+        'medida' => "xxl"
+    );
+
+    //add options to row
+    $item["options"] = array("color" => "orange", "avaliable" => "yes");
+
+    //add row to cart
+    Simplecart::insert($item);
+});
+```
+<h3>Then create the next view and visit the route show</h3>
+```php
+Route::get("show", function()
+{
+	$cart = Simplecart::get_content();
+	$totalcart = Simplecart::total_cart();
+	$totalitems = Simplecart::total_articles();
+	return View::make("cart", array("cart" => $cart, "total_cart" => $totalcart, "total_items" => $totalitems));
+});
+```
 <h1>Loop the cart and check if has options</h1>
 ```html
 <!doctype html>
@@ -153,4 +185,3 @@
 </body>
 </html>
 ```
-<p>PD: Total_cart and total_items are total_cart and total_articles methods :D.</p>
