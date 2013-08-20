@@ -1,5 +1,6 @@
 <h1>Simple Cart for Laravel 4</h1>
 <h1>Installation</h1>
+<p>Open your composer.json and add the next code</p>
 ```json
 {
 	"require": {
@@ -59,24 +60,96 @@
 
     Simplecart::update($update);
 ```
-<h2>Remove a product by rowid</h2>
+<h3>Remove a product by rowid</h3>
 <p>You just need to pass a rowid that there</p>
 ```php
 	Simplecart::remove_item("8e296a067a37563370ded05f5a3bf3ec");
 ```
-<h2>Get cart content</h2>
+<h3>Get cart content</h3>
 ```php	
 	Simplecart::get_content();
 ```
-<h2>Get total cost</h2>
+<h3>Get total cost</h3>
 ```php	
 	Simplecart::total_cart();
 ```
-<h2>Get total items</h2>
+<h3>Get total items</h3>
 ```php	
 	Simplecart::total_articles();
 ```
-<h2>Destroy simplecart</h2>
+<h3>Destroy simplecart</h3>
 ```php
 	Simplecart::destroy();
+```
+
+<h1>Loop the cart and check if has options</h1>
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Simplecart for Laravel 4</title>
+
+</head>
+<body>
+    <table class="welcome" style="widt">
+        <tr>
+            <thead>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Options
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Qty
+                </tth>
+                <th>
+                    Total price
+                </tth>
+            </thead>
+        </tr>
+        @foreach($cart as $items)
+        <tr>
+            <tbody style="text-align:center">
+                <td>
+                    {{ $items['id'] }}
+                </td>
+                <td>
+                    {{ $items['name'] }}
+                </td>
+                <td>
+                    @if(isset($items['options']))
+                        @foreach($items['options'] as $key => $val)
+                            {{ $key }}: {{ $val }}
+                        @endforeach
+                    @else
+                        ----
+                    @endif
+                </td>
+                <td>
+                    {{ $items['price'] }}
+                </td>
+                <td>
+                    {{ $items['qty'] }}
+                </td>
+                <td>
+                    {{ $items['total'] }}
+                </td>
+            </tbody>
+        </tr>
+        @endforeach
+        <tr>
+            <td colspan="3">Total: {{ $total_cart }}</td>
+            <td colspan="3">Items: {{ $total_items }}</td>
+        </tr>
+    </table>
+</body>
+</html>
 ```
