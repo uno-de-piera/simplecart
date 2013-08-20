@@ -165,7 +165,7 @@ class Simplecart{
 	*/
 	public function total_cart()
 	{
-		if(!is_numeric($this->upd_cart["total_cart"]))
+		if(!isset($this->upd_cart["total_cart"]) || $this->upd_cart === null)
 		{
 			return 0;
 		}
@@ -185,7 +185,7 @@ class Simplecart{
 	public function total_articles()
 	{
 
-		if(!is_numeric($this->upd_cart["total_articles"]))
+		if(!isset($this->upd_cart["total_articles"]) || $this->upd_cart === null)
 		{
 			return 0;
 		}
