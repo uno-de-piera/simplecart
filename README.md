@@ -124,6 +124,7 @@ Route::get("show", function()
 
 </head>
 <body>
+@if($cart)  
     <table class="simplecart">
         <tr>
             <thead>
@@ -182,6 +183,7 @@ Route::get("show", function()
             <td colspan="3">Items: {{ $total_items }}</td>
         </tr>
     </table>
+@endif
 </body>
 </html>
 ```
