@@ -165,8 +165,12 @@ class Simplecart{
 	*/
 	public function total_cart()
 	{
+		if(!is_numeric($this->upd_cart["total_cart"]))
+		{
+			return 0;
+		}
 		//check if total cart not is numeric and the cart not is null
-		if(!is_numeric($this->upd_cart["total_cart"]) && $this->upd_cart !== null)
+		if(!is_numeric($this->upd_cart["total_cart"]))
 		{
 			throw new Exception("The total cart must be an numbers", 1);	
 		}
@@ -180,8 +184,13 @@ class Simplecart{
 	*/
 	public function total_articles()
 	{
+
+		if(!is_numeric($this->upd_cart["total_articles"]))
+		{
+			return 0;
+		}
 		//check if total articles not is numeric and the cart not is null
-		if(!is_numeric($this->upd_cart["total_articles"]) && $this->upd_cart !== null)
+		if(!is_numeric($this->upd_cart["total_articles"]))
 		{
 			throw new Exception("The total articles must be an numbers", 1);	
 		}
