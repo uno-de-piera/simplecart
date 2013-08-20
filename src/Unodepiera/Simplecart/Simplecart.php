@@ -68,6 +68,7 @@ class Simplecart{
 		if($rowid)
 		{
 			$this->save_cart();
+			return true;
 		}else{
 			throw new Exception("Error saving cart", 1);	
 		}
@@ -216,7 +217,7 @@ class Simplecart{
 	* Update row from cart by rowid
 	* @access public 
 	* @param array 		$item
-	* @return array or null
+	* @return bool
 	*/
 	public function update($item = array())
 	{
@@ -252,6 +253,7 @@ class Simplecart{
 		}
 
 		$this->insert($item, true);
+		return true;
 		
 	}
 
@@ -259,6 +261,7 @@ class Simplecart{
 	* Remove row from cart.
 	* @access public
 	* @param string 	$rowid 
+	* @return bool
 	*/
 	public function remove_item($rowid)
 	{
@@ -276,6 +279,7 @@ class Simplecart{
 
 		$this->_remove_item($rowid);
 		$this->save_cart();
+		return true;
 
 	}
 
@@ -308,14 +312,17 @@ class Simplecart{
 	{
 		unset($_SESSION["cart_udp"]);
 		$this->upd_cart = null;
+
 	}
 
 	/**
 	* Destroy cart.
 	* @access public  
+	* @return bool
 	*/
 	public function destroy()
 	{
 		$this->_destroy();
+		return true;
 	}
 }
