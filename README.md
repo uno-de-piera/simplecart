@@ -92,7 +92,7 @@
 
 </head>
 <body>
-    <table class="welcome" style="widt">
+    <table class="simplecart">
         <tr>
             <thead>
                 <th>
@@ -153,3 +153,4 @@
 </body>
 </html>
 ```
+<p>PD: Total_cart and total_items are total_cart and total_articles methods :D.</p>
