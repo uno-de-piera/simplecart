@@ -1,0 +1,23 @@
+{
+    "name": "unodepiera/simplecart",
+    "description": "",
+    "authors": [
+        {
+            "name": "unodepiera",
+            "email": "unodepiera@uno-de-piera.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Unodepiera\\Simplecart": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
