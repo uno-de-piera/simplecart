@@ -141,9 +141,7 @@ class Simplecart{
 	}
 
 	/**
-	* Return rowid.
 	* @access private 
-	* @return string
 	*/
 	private function save_cart()
 	{
@@ -277,6 +275,7 @@ class Simplecart{
 		}
 
 		$this->_remove_item($rowid);
+		$this->save_cart();
 
 	}
 
@@ -288,7 +287,7 @@ class Simplecart{
 	private function _remove_item($rowid)
 	{
 		$this->_unset_row($rowid);
-		$this->get_cart();
+		$this->save_cart();
 	}
 
 	/**
