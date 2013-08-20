@@ -114,6 +114,10 @@ class Simplecart{
 
 	    }
 
+	    $items["qty"] = trim(preg_replace('/([^0-9\.])/i', '', $items["qty"]));
+	    
+	    $items["price"] = trim(preg_replace('/([^0-9\.])/i', '', $items["price"]));
+
 	    $items["total"] = $items["qty"] * $items["price"];
 
 		$this->_unset_row($rowid);
