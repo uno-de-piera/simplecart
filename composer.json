@@ -1,6 +1,8 @@
 {
     "name": "unodepiera/simplecart",
     "description": "Simplecart for Laravel 4",
+    "keywords": ["Laravel 4", "Laravel", "cart laravel 4", "cart for laravel 4", "cart unodepiera"],
+    "homepage": "http://uno-de-piera.com/",
     "authors": [
         {
             "name": "unodepiera",
